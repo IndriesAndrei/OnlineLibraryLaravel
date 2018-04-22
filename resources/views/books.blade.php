@@ -77,14 +77,13 @@
                                 </td>
 
                                 <td class="table-text text-center">
-                                    <form action="{{ url('book', [$book->id]) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('PUT') }}
-                            
+                                    
+                                   <a href="/book/{{ $book->id }}">
                                         <button type="submit" class="btn btn-success">
-                                                <span class="glyphicon glyphicon-trash"></span> Update
+                                                <span class="glyphicon glyphicon-pencil"></span> Update
                                         </button>
-                                    </form>
+                                    </a>
+                                   
                                 </td>
                             </tr>
                         @endforeach

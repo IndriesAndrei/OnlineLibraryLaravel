@@ -2,12 +2,12 @@
 
 @section('content')
 
-
+<div class="container">
 <h1>Edit Book</h1>
     <hr>
-     <form action="{{url('book', [$book->id])}}" method="POST">
-        <input type="hidden" name="_method" value="PUT">
+     <form action="/book/{{ $book->id }}" method="POST">
         {{ csrf_field() }}
+        {{ method_field('PUT') }}
     
       <div class="form-group">
         <label for="title">Bookname</label>
@@ -26,5 +26,5 @@
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
 
-
+</div>
 @stop

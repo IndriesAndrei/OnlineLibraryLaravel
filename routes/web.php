@@ -69,22 +69,24 @@ Route::delete('/book/{book}', function (Book $book) {
 
 
 
-  Route::get('/edit', function () {
-      return view('edit', compact('book', $book));
- });
+//   Route::get('/edit', function () {
+//       return view('edit', compact('book', $book));
+//  });
 
 
-Route::put('book', function (Request $request, Book $book) {
-    $request->validate([
-        'bookname' => 'required|min:3',
-    ]);
+// Route::patch('book', function (Request $request, Book $book) {
+//     $request->validate([
+//         'bookname' => 'required|min:3',
+//     ]);
     
-    $book->bookname = $request->bookname;
-    $book->save();
+//     $book->bookname = $request->bookname;
+//     $book->save();
     
-    return redirect('books');
-})->middleware('auth');
+//     return redirect('books');
+// })->middleware('auth');
 
+Route::get('/book/{book}', 'BookController@edit')->name('edit');
+Route::put('/book/{book}', 'BookController@update')->name('update');
 
 Auth::routes();
 
